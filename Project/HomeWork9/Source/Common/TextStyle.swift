@@ -7,7 +7,12 @@
 
 import UIKit
 
-protocol TextStyleProtocol {}
+protocol TextStyleProtocol {
+    
+    // add a function to the protocol to be able to display the text color of the appropriate type
+    // instead of the default implementation
+    func textColor(for type: TextType) -> UIColor
+}
 
 extension TextStyleProtocol {
     

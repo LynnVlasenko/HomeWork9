@@ -9,12 +9,6 @@ import Foundation
 
 class PasswordValidator: TextValidator {
     
-    // create the singleton to set the value from the "validate" func to the "password" variable in SignInModel
-    static let shared = PasswordValidator()
-    
-    // to avoid the possibility of creating another instance besides shared
-    private override init() {}
-    
     override func validate(text: String) -> String? {
         
         // use the logic of the parent class

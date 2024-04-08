@@ -11,6 +11,9 @@ class SignInModel {
     
     weak var delegate: SignInModelDelegate?
     
+    let emailValidator = EmailValidator()
+    let passwordValidator = PasswordValidator()
+    
     var emailValid: Bool = false
     var passwordValid: Bool = false
     
@@ -40,7 +43,7 @@ class SignInModel {
         didSet {
             
             // Get the result of validate func from EmailValidator
-            let emailErrorText = EmailValidator.shared.validate(text: email)
+            let emailErrorText = emailValidator.validate(text: email)
             
             // Set the result through a delegate
             delegate?.didValidate(errorText: emailErrorText, textType: .error)
@@ -54,7 +57,7 @@ class SignInModel {
         didSet {
             
             // Get the result of validate func from PasswordValidator
-            let passwordErrorText = PasswordValidator.shared.validate(text: password)
+            let passwordErrorText = passwordValidator.validate(text: password)
             
             // Set the result through a delegate
             delegate?.didValidate(errorText: passwordErrorText, textType: .error)
